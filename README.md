@@ -10,7 +10,7 @@ Senior Data professional with 4 years of experience at Infosys, specializing in 
 
 ## Repository Structure
 
-```
+```text
 sql-interview-prep/
 │
 ├── aggregations/       → GROUP BY, HAVING, COUNT, SUM, AVG, CASE WHEN
@@ -55,24 +55,33 @@ WHERE ...
 ## Problems Solved
 
 ### Aggregations
+
 | # | Problem | Difficulty | Source | Key Concept |
 |---|---------|-----------|--------|-------------|
 | 1 | Recyclable and Low Fat Products | Easy | LeetCode 1757 | WHERE with AND |
 | 2 | Find Customer Referee | Easy | LeetCode 584 | NULL handling |
 | 3 | Big Countries | Easy | LeetCode 595 | OR conditions |
 | 4 | Invalid Tweets | Easy | LeetCode 1683 | LENGTH function |
-| 5 | Article Views I | Easy | LeetCode 1148 | DISTINCT ORDER BY functions |
+| 5 | Article Views I | Easy | LeetCode 1148 | DISTINCT + ORDER BY |
+| 6 | Duplicate Emails | Easy | LeetCode 182 | GROUP BY + HAVING |
+| 7 | Game Play Analysis I | Easy | LeetCode 511 | MIN + GROUP BY |
+| 8 | The Blunder | Easy | HackerRank | AVG + REPLACE + CEIL |
 
 ### Window Functions
+
 | # | Problem | Difficulty | Source | Key Concept |
 |---|---------|-----------|--------|-------------|
 | 1 | Rank Scores | Medium | LeetCode 178 | DENSE_RANK |
 | 2 | Department Top 3 Salaries | Hard | LeetCode 185 | DENSE_RANK + partition |
 
 ### Joins
+
 | # | Problem | Difficulty | Source | Key Concept |
 |---|---------|-----------|--------|-------------|
 | 1 | Combine Two Tables | Easy | LeetCode 175 | LEFT JOIN |
+| 2 | Customers Who Never Order | Easy | LeetCode 183 | LEFT JOIN + IS NULL |
+| 3 | African Cities | Easy | HackerRank | INNER JOIN |
+| 4 | Average Population of Each Continent | Easy | HackerRank | JOIN + AVG + GROUP BY |
 
 *Table updates as problems are solved daily.*
 
@@ -81,6 +90,7 @@ WHERE ...
 ## Key Concepts Quick Reference
 
 ### Window Functions
+
 ```sql
 -- RANK vs DENSE_RANK vs ROW_NUMBER
 SELECT name, salary,
@@ -97,6 +107,7 @@ FROM sales;
 ```
 
 ### CTEs
+
 ```sql
 WITH cte_name AS (
     SELECT dept, AVG(salary) AS avg_sal
@@ -110,6 +121,7 @@ WHERE e.salary > c.avg_sal;
 ```
 
 ### Conditional Aggregation
+
 ```sql
 SELECT
     dept,
@@ -122,11 +134,11 @@ GROUP BY dept;
 ---
 
 ## Tools
-- **Practice platforms:** LeetCode · StrataScratch · DataLemur
+- **Practice platforms:** LeetCode · HackerRank · StrataScratch · DataLemur
 - **Database:** MySQL / PostgreSQL
 - **Target:** 50+ problems solved by Jun 22, 2026
 
 ---
 
 ## Connect
-**LinkedIn:** www.linkedin.com/in/varanasi-v-g-alekhya-233793145  
+**LinkedIn:** www.linkedin.com/in/varanasi-v-g-alekhya-233793145
