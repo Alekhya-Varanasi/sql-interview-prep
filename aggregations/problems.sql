@@ -63,3 +63,24 @@ WHERE area >= 3000000
 -- A country qualifies even if only ONE threshold is met
 -- Opposite of AND where BOTH must be true
 -- ============================================
+-- Problem: Invalid Tweets
+-- Source: LeetCode 1683
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/invalid-tweets/
+-- ============================================
+
+-- APPROACH:
+-- 1. A tweet is invalid if content length exceeds 15 characters
+-- 2. LENGTH() returns number of characters in the string
+-- 3. Filter tweets where content length is greater than 15
+
+-- SOLUTION:
+SELECT tweet_id
+FROM tweets
+WHERE LENGTH(content) > 15;
+
+-- KEY LEARNING:
+-- LENGTH() is used to count characters in a string
+-- WHERE filters rows based on conditions
+-- > 15 means only tweets exceeding limit are returned
+-- ============================================
