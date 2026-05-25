@@ -159,8 +159,29 @@ GROUP BY player_id;
 -- Aggregate functions summarize grouped data
 -- ============================================
 
--- Problem: Average Population of Each Continent
+-- ============================================
+-- Problem: The Blunder
 -- Source: HackerRank
 -- Difficulty: Easy
--- Link: https://www.hackerrank.com/challenges/average-population-of-each-continent/
+-- Link: https://www.hackerrank.com/challenges/the-blunder/
+-- ============================================
+
+-- APPROACH:
+-- 1. AVG(salary) calculates the actual average salary
+-- 2. REPLACE(salary, '0', '') removes all zeros from salary
+-- 3. AVG() on modified salaries gives mistaken average
+-- 4. Subtract mistaken average from actual average
+-- 5. CEIL() rounds result up to nearest integer
+
+-- SOLUTION:
+SELECT CEIL(
+           AVG(salary) - AVG(REPLACE(salary, '0', ''))
+       )
+FROM Employees;
+
+-- KEY LEARNING:
+-- REPLACE() substitutes characters inside strings
+-- Aggregate functions can be combined in calculations
+-- AVG() works on numeric expressions
+-- CEIL() rounds values upward
 -- ============================================
