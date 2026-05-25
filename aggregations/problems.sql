@@ -63,6 +63,7 @@ WHERE area >= 3000000
 -- A country qualifies even if only ONE threshold is met
 -- Opposite of AND where BOTH must be true
 -- ============================================
+
 -- Problem: Invalid Tweets
 -- Source: LeetCode 1683
 -- Difficulty: Easy
@@ -84,6 +85,7 @@ WHERE LENGTH(content) > 15;
 -- WHERE filters rows based on conditions
 -- > 15 means only tweets exceeding limit are returned
 -- ============================================
+
 -- Problem: Article Views I
 -- Source: LeetCode 1148
 -- Difficulty: Easy
@@ -107,3 +109,30 @@ ORDER BY author_id;
 -- Column aliases rename output columns using AS
 -- ORDER BY sorts results ascending by default
 -- ============================================
+
+-- Problem: Duplicate Emails
+-- Source: LeetCode 182
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/duplicate-emails/
+-- ============================================
+
+-- APPROACH:
+-- 1. Group rows by email address
+-- 2. COUNT(email) finds how many times each email appears
+-- 3. HAVING filters groups appearing more than once
+-- 4. Return only duplicate emails
+
+-- SOLUTION:
+SELECT email
+FROM Person
+GROUP BY email
+HAVING COUNT(email) > 1;
+
+-- KEY LEARNING:
+-- GROUP BY creates groups of similar values
+-- COUNT() is an aggregate function
+-- HAVING filters grouped data after aggregation
+-- WHERE filters rows before grouping
+-- ============================================
+
+
