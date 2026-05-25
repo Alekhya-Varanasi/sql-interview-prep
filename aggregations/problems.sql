@@ -185,3 +185,34 @@ FROM Employees;
 -- AVG() works on numeric expressions
 -- CEIL() rounds values upward
 -- ============================================
+
+-- Problem: Weather Observation Station 5
+-- Source: HackerRank
+-- Difficulty: Easy
+-- Link: https://www.hackerrank.com/challenges/weather-observation-station-5/problem
+
+-- APPROACH:
+-- 1. Find the city with the shortest name
+-- 2. If multiple cities have same length, choose alphabetically first
+-- 3. Find the city with the longest name
+-- 4. If multiple cities have same length, choose alphabetically first
+
+-- SOLUTION:
+
+-- Shortest city name
+SELECT CITY, LENGTH(CITY)
+FROM STATION
+ORDER BY LENGTH(CITY), CITY
+LIMIT 1;
+
+-- Longest city name
+SELECT CITY, LENGTH(CITY)
+FROM STATION
+ORDER BY LENGTH(CITY) DESC, CITY
+LIMIT 1;
+
+-- KEY LEARNING:
+-- LENGTH() returns number of characters in a string
+-- ORDER BY can sort using multiple conditions
+-- LIMIT 1 returns only the first row
+-- ============================================
