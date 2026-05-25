@@ -26,3 +26,30 @@ ON p.personId = a.personId;
 -- Table aliases make queries shorter and cleaner
 -- JOIN condition connects related records
 -- ============================================
+
+-- Problem: Customers Who Never Order
+-- Source: LeetCode 183
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/customers-who-never-order/
+-- ============================================
+
+-- APPROACH:
+-- 1. LEFT JOIN keeps all customers from Customers table
+-- 2. Match orders using customer id
+-- 3. Customers without orders will have NULL in Orders columns
+-- 4. Filter NULL order ids to get customers who never ordered
+
+-- SOLUTION:
+SELECT c.name AS Customers
+FROM Customers c
+LEFT JOIN Orders o
+ON c.id = o.customerId
+WHERE o.id IS NULL;
+
+-- KEY LEARNING:
+-- LEFT JOIN helps find missing matching records
+-- NULL values appear when no matching row exists
+-- IS NULL is used to filter missing data
+-- Common anti-join pattern in SQL interviews
+-- ============================================
+
