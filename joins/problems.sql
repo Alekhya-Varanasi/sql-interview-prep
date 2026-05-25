@@ -53,3 +53,57 @@ WHERE o.id IS NULL;
 -- Common anti-join pattern in SQL interviews
 -- ============================================
 
+-- ============================================
+-- Problem: African Cities
+-- Source: HackerRank
+-- Difficulty: Easy
+-- Link: https://www.hackerrank.com/challenges/african-cities/
+-- ============================================
+
+-- APPROACH:
+-- 1. JOIN City and Country tables using country code
+-- 2. Filter countries belonging to Africa continent
+-- 3. Return city names from matching records
+
+-- SOLUTION:
+SELECT CTY.Name
+FROM City CTY
+JOIN Country COU
+ON CTY.CountryCode = COU.Code
+WHERE COU.Continent = 'Africa';
+
+-- KEY LEARNING:
+-- JOIN retrieves related data from multiple tables
+-- WHERE filters rows based on conditions
+-- Aliases make long table names shorter and cleaner
+-- Only matching rows are returned with INNER JOIN
+-- ============================================
+
+-- ============================================
+-- Problem: Average Population of Each Continent
+-- Source: HackerRank
+-- Difficulty: Easy
+-- Link: https://www.hackerrank.com/challenges/average-population-of-each-continent/
+-- ============================================
+
+-- APPROACH:
+-- 1. JOIN Country and City tables using country code
+-- 2. Group rows by continent
+-- 3. AVG() calculates average city population per continent
+-- 4. FLOOR() removes decimal values
+
+-- SOLUTION:
+SELECT COU.Continent,
+       FLOOR(AVG(CTY.Population))
+FROM Country COU
+JOIN City CTY
+ON CTY.CountryCode = COU.Code
+GROUP BY COU.Continent;
+
+-- KEY LEARNING:
+-- JOIN combines related tables
+-- AVG() calculates mean values
+-- FLOOR() rounds down to nearest integer
+-- GROUP BY creates one result per continent
+-- ============================================
+
