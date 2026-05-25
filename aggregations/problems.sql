@@ -84,3 +84,26 @@ WHERE LENGTH(content) > 15;
 -- WHERE filters rows based on conditions
 -- > 15 means only tweets exceeding limit are returned
 -- ============================================
+-- Problem: Article Views I
+-- Source: LeetCode 1148
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/article-views-i/
+-- ============================================
+
+-- APPROACH:
+-- 1. Find rows where the author viewed their own article
+-- 2. author_id = viewer_id identifies self-views
+-- 3. DISTINCT removes duplicate author ids
+-- 4. ORDER BY sorts ids in ascending order
+
+-- SOLUTION:
+SELECT DISTINCT author_id AS id
+FROM views
+WHERE author_id = viewer_id
+ORDER BY author_id;
+
+-- KEY LEARNING:
+-- DISTINCT removes duplicate values
+-- Column aliases rename output columns using AS
+-- ORDER BY sorts results ascending by default
+-- ============================================
