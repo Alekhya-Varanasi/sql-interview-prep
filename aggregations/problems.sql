@@ -159,5 +159,29 @@ GROUP BY player_id;
 -- Aggregate functions summarize grouped data
 -- ============================================
 
+-- Problem: Average Population of Each Continent
+-- Source: HackerRank
+-- Difficulty: Easy
+-- Link: https://www.hackerrank.com/challenges/average-population-of-each-continent/
+-- ============================================
 
+-- APPROACH:
+-- 1. JOIN Country and City tables using country code
+-- 2. Group rows by continent
+-- 3. AVG() calculates average city population per continent
+-- 4. FLOOR() removes decimal values
 
+-- SOLUTION:
+SELECT COU.Continent,
+       FLOOR(AVG(CTY.Population))
+FROM Country COU
+JOIN City CTY
+ON CTY.CountryCode = COU.Code
+GROUP BY COU.Continent;
+
+-- KEY LEARNING:
+-- JOIN combines related tables
+-- AVG() calculates mean values
+-- FLOOR() rounds down to nearest integer
+-- GROUP BY creates one result per continent
+-- ============================================
