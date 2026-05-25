@@ -19,6 +19,7 @@ WHERE low_fats = 'Y'
 -- AND means BOTH conditions must be true
 -- ENUM columns compared with string values 'Y'/'N'
 -- ============================================
+
 -- Problem: Find Customer Referee
 -- Source: LeetCode 584
 -- Difficulty: Easy
@@ -39,4 +40,26 @@ WHERE referee_id != 2
 -- NULL != 2 evaluates to UNKNOWN not TRUE
 -- so != alone silently drops NULL rows
 -- Always handle NULL explicitly in WHERE clauses
+-- ============================================
+
+-- Problem: Big Countries
+-- Source: LeetCode 595
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/big-countries/description/
+
+-- APPROACH:
+-- 1. Include countries with area having atleast 3 Million 
+-- 2. Also include countries with atleast 25 Million population 
+-- 3. OR covers both cases
+
+-- SOLUTION:
+SELECT name, population, area 
+FROM world 
+WHERE area >= 3000000 
+   OR population>= 25000000;
+
+-- KEY LEARNING:
+-- OR means either condition must be true
+-- A country qualifies even if only ONE threshold is met
+-- Opposite of AND where BOTH must be true
 -- ============================================
