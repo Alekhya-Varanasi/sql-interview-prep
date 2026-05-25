@@ -135,4 +135,29 @@ HAVING COUNT(email) > 1;
 -- WHERE filters rows before grouping
 -- ============================================
 
+-- Problem: Game Play Analysis I
+-- Source: LeetCode 511
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/game-play-analysis-i/
+-- ============================================
+
+-- APPROACH:
+-- 1. Group records by player_id
+-- 2. MIN(event_date) finds the earliest login date
+-- 3. Return each player's first login date
+
+-- SOLUTION:
+SELECT player_id,
+       MIN(event_date) AS first_login
+FROM Activity
+GROUP BY player_id;
+
+-- KEY LEARNING:
+-- MIN() returns the smallest value in a group
+-- GROUP BY creates one result per player
+-- DISTINCT is unnecessary when using GROUP BY
+-- Aggregate functions summarize grouped data
+-- ============================================
+
+
 
