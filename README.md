@@ -61,6 +61,7 @@ WHERE ...
 | 2 | Find Customer Referee | Easy | LeetCode 584 | NULL handling |
 | 3 | Big Countries | Easy | LeetCode 595 | OR conditions |
 | 4 | Invalid Tweets | Easy | LeetCode 1683 | LENGTH function |
+| 5 | Article Views I | Easy | LeetCode 1148 | DISTINCT ORDER BY functions |
 
 ### Window Functions
 | # | Problem | Difficulty | Source | Key Concept |
