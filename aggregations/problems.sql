@@ -216,3 +216,23 @@ LIMIT 1;
 -- ORDER BY can sort using multiple conditions
 -- LIMIT 1 returns only the first row
 -- ============================================
+-- ============================================
+-- Problem: Number of Unique Subjects Taught by Each Teacher
+-- Source: LeetCode 2356
+-- Difficulty: Easy
+-- ============================================
+
+-- APPROACH:
+-- 1. Group by each teacher
+-- 2. Count distinct subjects per teacher
+-- 3. DISTINCT handles duplicate subject_id in same dept
+
+-- SOLUTION:
+SELECT teacher_id, COUNT(DISTINCT subject_id) AS cnt
+FROM teacher
+GROUP BY teacher_id;
+
+-- KEY LEARNING:
+-- COUNT(DISTINCT col) counts unique values only
+-- LeetCode runtime % varies — don't chase it
+-- ============================================
