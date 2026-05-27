@@ -236,3 +236,26 @@ GROUP BY teacher_id;
 -- COUNT(DISTINCT col) counts unique values only
 -- LeetCode runtime % varies — don't chase it
 -- ============================================
+-- ============================================
+-- Problem: Not Boring Movies
+-- Source: LeetCode 620
+-- Difficulty: Easy
+-- ============================================
+
+-- APPROACH:
+-- 1. Select only movies with odd-numbered IDs
+-- 2. Exclude movies where description is 'boring'
+-- 3. Sort results by rating in descending order
+
+-- SOLUTION:
+SELECT *
+FROM cinema
+WHERE id % 2 != 0
+  AND description != 'boring'
+ORDER BY rating DESC;
+
+-- KEY LEARNING:
+-- % operator is used to check odd/even numbers
+-- Multiple conditions can be combined using AND
+-- ORDER BY col DESC sorts values from highest to lowest
+-- ============================================
