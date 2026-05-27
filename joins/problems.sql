@@ -106,4 +106,29 @@ GROUP BY COU.Continent;
 -- FLOOR() rounds down to nearest integer
 -- GROUP BY creates one result per continent
 -- ============================================
+-- ============================================
+-- Problem: Replace Employee ID With The Unique Identifier
+-- Source: LeetCode 1378
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/
+-- ============================================
 
+-- APPROACH:
+-- 1. Use LEFT JOIN to combine Employees and EmployeeUNI tables
+-- 2. Match rows using the employee ID column
+-- 3. Select unique_id from EmployeeUNI and name from Employees
+-- 4. LEFT JOIN ensures all employees appear,
+--    even if they don't have a unique_id
+
+-- SOLUTION:
+SELECT eu.unique_id, e.name
+FROM Employees e
+LEFT JOIN EmployeeUNI eu
+ON e.id = eu.id;
+
+-- KEY LEARNING:
+-- LEFT JOIN keeps all records from the left table
+-- If no matching row exists, NULL is returned
+-- Aliases (e, eu) make queries shorter and cleaner
+-- JOIN is used to combine related tables
+-- ============================================

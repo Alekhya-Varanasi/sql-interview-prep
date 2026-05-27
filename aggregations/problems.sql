@@ -220,6 +220,7 @@ LIMIT 1;
 -- Problem: Number of Unique Subjects Taught by Each Teacher
 -- Source: LeetCode 2356
 -- Difficulty: Easy
+-- Link: https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/
 -- ============================================
 
 -- APPROACH:
@@ -240,6 +241,7 @@ GROUP BY teacher_id;
 -- Problem: Not Boring Movies
 -- Source: LeetCode 620
 -- Difficulty: Easy
+-- Link: https://leetcode.com/problems/not-boring-movies/
 -- ============================================
 
 -- APPROACH:
