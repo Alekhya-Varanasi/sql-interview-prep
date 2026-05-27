@@ -157,3 +157,33 @@ ON s.product_id = p.product_id;
 -- Table aliases (s, p) improve readability
 -- INNER JOIN returns only matching records
 -- ============================================
+-- ============================================
+-- Problem: Customer Who Visited but Did Not Make Any Transactions
+-- Source: LeetCode 1581
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/
+-- ============================================
+
+-- APPROACH:
+-- 1. Use LEFT JOIN to combine Visits and Transactions tables
+-- 2. Match rows using visit_id
+-- 3. Find visits where transaction_id is NULL
+--    (means no transaction was made)
+-- 4. Group results by customer_id
+-- 5. Count the number of visits without transactions
+
+-- SOLUTION:
+SELECT v.customer_id,
+       COUNT(v.visit_id) AS count_no_trans
+FROM Visits v
+LEFT JOIN Transactions t
+ON v.visit_id = t.visit_id
+WHERE t.transaction_id IS NULL
+GROUP BY v.customer_id;
+
+-- KEY LEARNING:
+-- LEFT JOIN keeps all rows from the left table
+-- NULL values help identify missing matches
+-- COUNT() counts rows within each group
+-- GROUP BY is used for aggregation per customer
+-- ============================================
