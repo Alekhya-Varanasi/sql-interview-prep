@@ -187,3 +187,31 @@ GROUP BY v.customer_id;
 -- COUNT() counts rows within each group
 -- GROUP BY is used for aggregation per customer
 -- ============================================
+-- ============================================
+-- Problem: Employee Bonus
+-- Source: LeetCode 577
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/employee-bonus/
+-- ============================================
+
+-- APPROACH:
+-- 1. Use LEFT JOIN to combine Employee and Bonus tables
+-- 2. Match records using empId
+-- 3. Select employees whose bonus is less than 1000
+--    OR who have no bonus (NULL)
+-- 4. LEFT JOIN ensures employees without bonus are included
+
+-- SOLUTION:
+SELECT e.name, b.bonus
+FROM Employee e
+LEFT JOIN Bonus b
+ON e.empId = b.empId
+WHERE b.bonus < 1000
+   OR b.bonus IS NULL;
+
+-- KEY LEARNING:
+-- LEFT JOIN preserves all rows from the left table
+-- NULL checks must use IS NULL (not = NULL)
+-- OR condition helps include missing related records
+-- Filtering can be applied after join
+-- ============================================
