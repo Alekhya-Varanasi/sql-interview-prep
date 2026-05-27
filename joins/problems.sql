@@ -132,3 +132,28 @@ ON e.id = eu.id;
 -- Aliases (e, eu) make queries shorter and cleaner
 -- JOIN is used to combine related tables
 -- ============================================
+-- ============================================
+-- Problem: Product Sales Analysis I
+-- Source: LeetCode 1068
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/product-sales-analysis-i/
+-- ============================================
+
+-- APPROACH:
+-- 1. Join the Sales and Product tables
+-- 2. Match rows using product_id
+-- 3. Select product_name from Product table
+-- 4. Select year and price from Sales table
+
+-- SOLUTION:
+SELECT p.product_name, s.year, s.price
+FROM Sales s
+JOIN Product p
+ON s.product_id = p.product_id;
+
+-- KEY LEARNING:
+-- JOIN combines rows from related tables
+-- ON specifies the matching condition
+-- Table aliases (s, p) improve readability
+-- INNER JOIN returns only matching records
+-- ============================================
