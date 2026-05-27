@@ -215,3 +215,31 @@ WHERE b.bonus < 1000
 -- OR condition helps include missing related records
 -- Filtering can be applied after join
 -- ============================================
+-- ============================================
+-- Problem: Managers with at Least 5 Direct Reports
+-- Source: LeetCode 570
+-- Difficulty: Medium
+-- Link: https://leetcode.com/problems/managers-with-at-least-5-direct-reports/
+-- ============================================
+
+-- APPROACH:
+-- 1. Self-join Employee table to link employees with their managers
+-- 2. Match employee.id with employee.managerId
+-- 3. Group by manager
+-- 4. Count number of direct reports per manager
+-- 5. Filter managers having at least 5 reports
+
+-- SOLUTION:
+SELECT e1.name
+FROM Employee e1
+JOIN Employee e2
+ON e1.id = e2.managerId
+GROUP BY e1.id, e1.name
+HAVING COUNT(e2.id) >= 5;
+
+-- KEY LEARNING:
+-- Self JOIN is used when table relates to itself
+-- GROUP BY must include selected non-aggregated columns
+-- HAVING filters after aggregation
+-- COUNT() helps measure direct relationships
+-- ============================================
