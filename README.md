@@ -66,6 +66,11 @@ WHERE ...
 | 6 | Duplicate Emails | Easy | LeetCode 182 | GROUP BY + HAVING |
 | 7 | Game Play Analysis I | Easy | LeetCode 511 | MIN + GROUP BY |
 | 8 | The Blunder | Easy | HackerRank | AVG + REPLACE + CEIL |
+| 9 | Weather Observation Station 5 | Easy | HackerRank | ORDER BY + LENGTH |
+| 10 | Number of Unique Subjects Taught by Each Teacher | Easy | LeetCode 2356 | COUNT DISTINCT |
+| 11 | Not Boring Movies | Easy | LeetCode 620 | MOD + filtering |
+| 12 | Weather Observation Station 11 | Easy | HackerRank | REGEXP + OR |
+| 13 | Weather Observation Station 12 | Easy | HackerRank | REGEXP + AND |
 
 ### Window Functions
 
@@ -82,6 +87,13 @@ WHERE ...
 | 2 | Customers Who Never Order | Easy | LeetCode 183 | LEFT JOIN + IS NULL |
 | 3 | African Cities | Easy | HackerRank | INNER JOIN |
 | 4 | Average Population of Each Continent | Easy | HackerRank | JOIN + AVG + GROUP BY |
+| 5 | Replace Employee ID With The Unique Identifier | Easy | LeetCode 1378 | LEFT JOIN |
+| 6 | Product Sales Analysis I | Easy | LeetCode 1068 | INNER JOIN |
+| 7 | Customer Who Visited but Did Not Make Any Transactions | Easy | LeetCode 1581 | LEFT JOIN + COUNT |
+| 8 | Employee Bonus | Easy | LeetCode 577 | LEFT JOIN + NULL filtering |
+| 9 | Managers with at Least 5 Direct Reports | Medium | LeetCode 570 | SELF JOIN + HAVING |
+| 10 | Project Employees I | Easy | LeetCode 1075 | JOIN + AVG + ROUND |
+
 
 *Table updates as problems are solved daily.*
 
