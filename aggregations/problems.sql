@@ -287,3 +287,29 @@ WHERE CITY NOT REGEXP '^[AEIOU]'
 -- $ represents the end of a string
 -- NOT REGEXP filters values that do not match the pattern
 -- ============================================
+-- ============================================
+-- Problem: Weather Observation Station 12
+-- Source: HackerRank
+-- Difficulty: Easy
+-- Link: https://www.hackerrank.com/challenges/weather-observation-station-12/problem
+-- ============================================
+
+-- APPROACH:
+-- 1. Select distinct city names from STATION table
+-- 2. Find cities that do NOT start with a vowel
+-- 3. Find cities that do NOT end with a vowel
+-- 4. Use AND to keep only cities satisfying both conditions
+
+-- SOLUTION:
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT REGEXP '^[AEIOU]'
+  AND CITY NOT REGEXP '[AEIOU]$';
+
+-- KEY LEARNING:
+-- DISTINCT removes duplicate rows
+-- REGEXP enables pattern matching in SQL
+-- ^ checks the beginning of a string
+-- $ checks the ending of a string
+-- AND requires both conditions to be true
+-- ============================================
