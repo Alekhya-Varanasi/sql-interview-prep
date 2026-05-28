@@ -243,3 +243,31 @@ HAVING COUNT(e2.id) >= 5;
 -- HAVING filters after aggregation
 -- COUNT() helps measure direct relationships
 -- ============================================
+-- ============================================
+-- Problem: Project Employees I
+-- Source: LeetCode 1075
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/project-employees-i/
+-- ============================================
+
+-- APPROACH:
+-- 1. Join Project and Employee tables
+-- 2. Match rows using employee_id
+-- 3. Group records by project_id
+-- 4. Calculate average experience_years for each project
+-- 5. Use ROUND() to format result to 2 decimal places
+
+-- SOLUTION:
+SELECT p.project_id,
+       ROUND(AVG(e.experience_years), 2) AS average_years
+FROM Project p
+JOIN Employee e
+ON p.employee_id = e.employee_id
+GROUP BY p.project_id;
+
+-- KEY LEARNING:
+-- AVG() calculates the average value
+-- ROUND(num, 2) formats decimals to 2 places
+-- GROUP BY is needed with aggregate functions
+-- JOIN combines related data from multiple tables
+-- ============================================
