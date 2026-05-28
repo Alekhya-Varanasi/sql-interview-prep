@@ -261,3 +261,29 @@ ORDER BY rating DESC;
 -- Multiple conditions can be combined using AND
 -- ORDER BY col DESC sorts values from highest to lowest
 -- ============================================
+-- ============================================
+-- Problem: Weather Observation Station 11
+-- Source: HackerRank
+-- Difficulty: Easy
+-- Link: https://www.hackerrank.com/challenges/weather-observation-station-11/problem
+-- ============================================
+
+-- APPROACH:
+-- 1. Select distinct city names from STATION table
+-- 2. Find cities that do NOT start with a vowel
+--    OR do NOT end with a vowel
+-- 3. Use REGEXP for pattern matching
+
+-- SOLUTION:
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT REGEXP '^[AEIOU]'
+   OR CITY NOT REGEXP '[AEIOU]$';
+
+-- KEY LEARNING:
+-- DISTINCT removes duplicate values
+-- REGEXP is used for pattern matching
+-- ^ represents the start of a string
+-- $ represents the end of a string
+-- NOT REGEXP filters values that do not match the pattern
+-- ============================================
