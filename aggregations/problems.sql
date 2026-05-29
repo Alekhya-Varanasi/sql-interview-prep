@@ -313,3 +313,28 @@ WHERE CITY NOT REGEXP '^[AEIOU]'
 -- $ checks the ending of a string
 -- AND requires both conditions to be true
 -- ============================================
+-- ============================================
+-- Problem: Find Followers Count
+-- Source: LeetCode 1729
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/find-followers-count/
+-- ============================================
+
+-- APPROACH:
+-- 1. Group records by user_id
+-- 2. Count the number of follower_id values for each user
+-- 3. Sort the result by user_id in ascending order
+
+-- SOLUTION:
+SELECT user_id,
+       COUNT(follower_id) AS followers_count
+FROM Followers
+GROUP BY user_id
+ORDER BY user_id;
+
+-- KEY LEARNING:
+-- COUNT() counts rows within each group
+-- GROUP BY creates groups for aggregation
+-- ORDER BY sorts the final result
+-- Aggregate functions are commonly used with GROUP BY
+-- ============================================
