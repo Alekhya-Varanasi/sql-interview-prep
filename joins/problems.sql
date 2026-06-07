@@ -271,3 +271,52 @@ GROUP BY p.project_id;
 -- GROUP BY is needed with aggregate functions
 -- JOIN combines related data from multiple tables
 -- ============================================
+-- ============================================
+-- Problem: Average Selling Price
+-- Source: LeetCode 1251
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/average-selling-price/
+-- ============================================
+
+-- APPROACH:
+-- 1. Start with the Prices table because every product
+--    must appear in the final result.
+-- 2. LEFT JOIN UnitsSold using:
+--      - matching product_id
+--      - purchase_date within the product's price period
+-- 3. Calculate total revenue:
+--      SUM(units * price)
+-- 4. Calculate total units sold:
+--      SUM(units)
+-- 5. Average Selling Price =
+--      Total Revenue / Total Units Sold
+-- 6. Use COALESCE() to return 0 when a product has no sales.
+-- 7. Round the result to 2 decimal places.
+
+-- SOLUTION:
+SELECT
+    p.product_id,
+    ROUND(
+        COALESCE(
+            SUM(u.units * p.price) / SUM(u.units),
+            0
+        ),
+        2
+    ) AS average_price
+FROM Prices p
+LEFT JOIN UnitsSold u
+    ON p.product_id = u.product_id
+   AND u.purchase_date BETWEEN p.start_date
+                           AND p.end_date
+GROUP BY p.product_id;
+
+-- KEY LEARNING:
+-- LEFT JOIN ensures products with no sales are included.
+-- BETWEEN checks if purchase_date falls within a price period.
+-- SUM(units * price) gives total revenue.
+-- SUM(units) gives total quantity sold.
+-- COALESCE(expr, 0) replaces NULL with 0.
+-- ROUND(value, 2) formats output to 2 decimal places.
+-- GROUP BY product_id calculates ASP per product.
+-- Weighted Average = SUM(value * weight) / SUM(weight)
+-- ============================================
