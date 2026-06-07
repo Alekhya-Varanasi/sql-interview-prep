@@ -320,3 +320,63 @@ GROUP BY p.product_id;
 -- GROUP BY product_id calculates ASP per product.
 -- Weighted Average = SUM(value * weight) / SUM(weight)
 -- ============================================
+-- ============================================
+-- Problem: Students and Examinations
+-- Source: LeetCode 1280
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/students-and-examinations/
+-- ============================================
+
+-- APPROACH:
+-- 1. Generate all possible student-subject combinations
+--    using CROSS JOIN.
+-- 2. LEFT JOIN Examinations to preserve combinations
+--    where no exam was attended.
+-- 3. Match examination records using:
+--      - student_id
+--      - subject_name
+-- 4. Count matching examination records for each
+--    student-subject pair.
+-- 5. Group by student and subject.
+-- 6. Sort by student_id and subject_name.
+
+-- SOLUTION:
+SELECT
+    s.student_id,
+    s.student_name,
+    sub.subject_name,
+    COUNT(e.student_id) AS attended_exams
+FROM Students s
+CROSS JOIN Subjects sub
+LEFT JOIN Examinations e
+    ON s.student_id = e.student_id
+   AND sub.subject_name = e.subject_name
+GROUP BY
+    s.student_id,
+    s.student_name,
+    sub.subject_name
+ORDER BY
+    s.student_id,
+    sub.subject_name;
+
+-- KEY LEARNING:
+-- CROSS JOIN creates all possible combinations
+-- of rows between two tables (Cartesian Product).
+--
+-- LEFT JOIN keeps rows even when no matching
+-- examination record exists.
+--
+-- COUNT(column) ignores NULL values, so students
+-- who never attended an exam get 0.
+--
+-- Always GROUP BY the output grain:
+--    One row per (student_id, subject_name)
+--
+-- Do not group by descriptive columns alone
+-- (e.g., student_name) because duplicate names
+-- can exist.
+--
+-- Interview Pattern:
+-- Generate all combinations + LEFT JOIN +
+-- Aggregate counts.
+-- ============================================
