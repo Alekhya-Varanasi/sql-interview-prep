@@ -338,3 +338,32 @@ ORDER BY user_id;
 -- ORDER BY sorts the final result
 -- Aggregate functions are commonly used with GROUP BY
 -- ============================================
+-- ============================================
+-- Problem: User Activity for the Past 30 Days I
+-- Source: LeetCode 1141
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/user-activity-for-the-past-30-days-i/
+-- ============================================
+
+-- APPROACH:
+-- 1. Filter records to only include the last 30 days
+--    from the given end date (2019-07-27).
+-- 2. Count unique active users per day.
+-- 3. Use COUNT(DISTINCT user_id) to avoid duplicates.
+-- 4. Group results by activity_date.
+-- 5. Return activity_date as "day".
+
+-- SOLUTION:
+SELECT
+    activity_date AS day,
+    COUNT(DISTINCT user_id) AS active_users
+FROM Activity
+WHERE activity_date BETWEEN '2019-06-28' AND '2019-07-27'
+GROUP BY activity_date;
+
+-- KEY LEARNING:
+-- BETWEEN includes both start and end dates.
+-- COUNT(DISTINCT ...) is used to remove duplicate user activity in a day.
+-- GROUP BY activity_date aggregates daily activity.
+-- This is a classic "daily aggregation over a sliding window" pattern.
+-- ============================================
