@@ -367,3 +367,30 @@ GROUP BY activity_date;
 -- GROUP BY activity_date aggregates daily activity.
 -- This is a classic "daily aggregation over a sliding window" pattern.
 -- ============================================
+-- ============================================
+-- Problem: Classes With at Least 5 Students
+-- Source: LeetCode 596
+-- Difficulty: Easy
+-- Link: https://leetcode.com/problems/classes-with-at-least-5-students/
+-- ============================================
+
+-- APPROACH:
+-- 1. Group records by class.
+-- 2. Count number of students in each class.
+-- 3. Filter only those classes having >= 5 students.
+-- 4. Use HAVING because filtering is done on aggregated result.
+
+-- SOLUTION:
+SELECT
+    class
+FROM Courses
+GROUP BY class
+HAVING COUNT(student) >= 5;
+
+-- KEY LEARNING:
+-- GROUP BY creates one row per class.
+-- COUNT(student) counts non-NULL student entries per class.
+-- HAVING is used to filter aggregated results (not WHERE).
+-- WHERE filters rows BEFORE aggregation.
+-- This is a basic "group + filter aggregated result" pattern.
+-- ============================================
